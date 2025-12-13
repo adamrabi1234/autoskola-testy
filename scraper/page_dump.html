@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="cs"><head><script type="text/javascript" src="https://etesty.md.gov.cz/olZsgrV1WL6TeKfn3LW2C5s0QBbfJga_GW7h6QJxKZq2s3K07L7EOsigf2AzYrs-LfMhLGkoNoFYeRe2TvX23kw1mzYNvA78xg_t1vL6W9BoSf8dBEDORB_FlPtJIBTrudy0aM6aVyuy_C2KaVmhxNcGkStLT-9qj0SXwVwwo70="></script>
+    <!-- 45 -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    <title>IS eTesty</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link href="/css/bundle.css?v=l8S5KGGMqXOVfYOB0WwydtpuMXtNpY1G15R8BTZrPuM" rel="stylesheet">
+    <link href="/lib/jquery-ui-custom/jquery-ui.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    
+
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-ui-custom/jquery-ui.min.js"></script>
+    <script src="/lib/jquery-ui-custom/datepicker-cs.js"></script>
+    <script src="/js/bundle.js?v=ec-SsaWKH2AgS1IDKiV9IYTOzo5gio6Vo2HxUim05so"></script>
+    <script src="/js/infobar.js?v=_OmC2IGNOBKKcstNOdOkpp2IqUTCV-aeWx-7UnutUI0"></script>
+    <script type="text/javascript">
+        var baseAppURL = '/';
+    </script>
+
+    
+    
+    <script>
+        let currentQuestionIndex = 0;
+        let state="random";
+        let nextStep=0;
+        const questionList=[180,187,195,223,237,269,427,456,476,479,498,509,526,784,808,1022,1108,1297,1311,1329,1332,1336,1338,1339,1340,1341,1345,1347,1348,1349,1373,1389,1400,1402,1408,1427,1441,1446,1455,1468,1469,1476,1477,1483,1504,1508,1511,1517,1521,1525,1526,1527,1536,1537,1539,1545,1566,1572,1575,1579,1584,1585,1589,1598,1604,1607,1615,1629,1650,1706,1714,1742,1768,1770,1776,1785,1792,1793,1798,1800,1803,1863,1866,1867,1868,1870,1915,1920,1921,1922,1923,1925,1928,1929,1931,1933,1936,1937,1942,1943,1957,1991,1993,1996,1997,1998,2000,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2017,2018,2019,2020,2021,2022,2023,2024,2025,2031,2033,2034,2035,2037,2039,2040,2042,2043,2048,2049,2051,2052,2054,2057,2058,2059,2060,2061,2079,2081,2083,2084,2088,2091,2098,2099,2102,2108,2113,2122,2125,2128,2131,2132,2137,2142,2145,2146,2158,2159,2167,2169,2171,2179,2183,2186,2189,2190,2192,2194,2195,2197,2199,2200,2209,2211,2214,2215,2216,2217,2218,2227,2228,2231,2233,2234,2235,2241,2249,2251,2252,2253,2255,2265,2268,2269,2270,2271,2272,2273,2274,2275,2276,2277,2278,2279,2280,2281,2282,2283,2284,2286,2288,2289,2290,2294,2297,2305,2306,2310,2311,2312,2314,2315,2316,2321,2322,2328,2331,2333,2334,2337,2339,2340,2341,2342,2344,2345,2348,2349,2350,2351,2352,2355,2360,2361,2362,2365,2366,2367,2368,2369,2371,2372,2374,2376,2382,2389,2390,2394,2395,2398,2399,2411,2413,2414,2415,2420,2421,2424,2425,2428,2429,2432,2435,2438,2439,2440,2441,2442,2444,2447,2448,2452,2454,2457,2487,2488,2490,2498,2499,2502,2504,2505,2515,2518,2519,2522,2523,2524,2525,2526,2527,2528,2529,2532,2534,2535,2537,2538,2539,2540,2542,2544,2556,2557,2559,2563,2566,2570,2574,2581,2582,2584,2585,2586,2587,2588,2589,2590,2591,2596,2597,2598,2599,2600,2601,2602,2603,2604,2605,2606,2607,2608,2609,2610,2611,2612,2613,2618,2632,2638,2639,2643,2644,2649,2650,2652,2653,2656,2657,2658,2659,2662,2663,2664,2667,2668,2669,2671,2672,2673,2676,2683,2760,2796,2800,2802,2803,2805,2806,2807,2808,2811,2812,2813,2815,2817,2818,2819,2820,2823,2825,2826,2827,2828,2829,2830,2831,2832,2834,2835,2836,2838,2839,2840,2843,2844,2846,2847,2848,2849,2850,2851,2852,2853,2857,2859,2860,2861,2862,2863,2864,2867,2868,2870,2871,2872,2874,2875,2876,2877,2878,2879,2880,2884,2885,2888,2892,2898,2901,2903,2904,2906,2907,2908,2909,2910,2911,2912,2913,2915,2916,2917,2918,2919,2920,2921,2923,2926,2927,2928,2930,2931,2932,2935,2937,2938,2939,2940,2942,2943,2945,2946,2947,2948,2949,2950,2952,2953,2954,2955,2961,2962,2963,2964,2968,2969,2973,2976,2977,2979,2982,2983,2984,2986,2987,2988,2989,2992,2994,2995,2998,2999,3000,3001,3009,3010,3011,3017,3020,3021,3022,3030,3032,3033,3044,3045,3046,3047,3048,3049,3051,3052,3053,3054,3055,3056,3057,3059,3065,3074,3076,3079,3080,3081,3082,3083,3084,3086,3087,3088,3089,3090,3091,3092,3093,3094,3095,3096,3097,3099,3100,3101,3102,3103,3104,3106,3107,3108,3109,3111,3112,3113,3114,3116,3120,3126,3127,3128,3129,3130,3133,3134,3135,3136,3138,3144,3146,3147,3148,3149,3150,3151,3152,3154,3155,3164,3166,3167,3168,3169,3171,3172,3173,3175,3176,3180,3181,3182,3183,3184,3185,3186,3188,3191,3192,3193,3196,3197,3198,3199,3200,3201,3202,3203,3204,3206,3208,3209,3210,3211,3213,3214,3216,3218,3220,3222,3224,3226,3227,3232,3236,3237,3240,3241,3244,3245,3246,3247,3255,3256,3257,3267,3373,3449,3451,3452,3454,3455,3456,3457,3461,3465,3467,3469,3473,3474,3479,3583,3634,3942,4021,4022,4023,4024,4027,4068,4072,4076,4115,4118,4120,4121,4122,4127,4130,4131,4293,4294,4299,4300,4302,4303,4304,4305,4306,4307,4308,4309,4310,4311,4312,4313,4314,4315,4316,4317,4318,4319,4320,4321,4322,4323,4324,4325,4326,4327,4328,4329,4330,4331,4332,4333,4335,4336,4337,4338,4339,4340,4341,4342,4343,4344,4345,4346,4347,4348,4349,4350,4351,4352,4353,4354,4403,4406,4407,4421,4422,4423,4429,4430,4431,4436,4446,4447,4461,4462,4463,4498,4505,4506,4507,4508,4509,4510,4511,4512,4515,4516,4518,4519,4522,4529,4532,4533,4534,4535,4536,4537,4539,4540,4541,4542,4544,4545,4552,4554,4556,4557,4559,4561,4562,4565,5288,5290,5293,5295,5370,5371,5372,5374,5375,5376,5377,5378,5379,5380,5381,5382,5383,5384,5385,5386,5387,5388,5389,5390,5391,5392,5393,5394,5395,5396,5397,5398,5399,5400,5401,5402,5403,5404,5405,5406,5407,5408,5409,5410,5411,5412,5413,5414,5415,5416,5417,5418,5419,5420,5421,5422,5423,5424,5425,5426,5427,5428,5430,5431,5432,5433,5434,5435,5436,5437,5438,5439,5440,5442,5443,5444,5445,5447,5448,5449,5450,5451,5452,5453,5454,5455,5456,5457,5458,5460,5461,5462,5463,5464,5465,5466,5467,5468,5469,5470,5472,5473,5474,5475,5476,5477,5478,5482,5483,5484,5485,5486,5487,5488,5489,5490,5491,5492,5494,5495,5496,5499,5500,5501,5502,5503,5504,5505,5506,5507,5508,5509,5510,5511,5512,5513,5515,5516,5517,5518,5519,5520,5521,5522,5523,5524,5525,5526,5527,5530,5531,5532,5534,5535,5536,5537,5538,5540,5542,5543,5544,5546,5548,5549,5551,5552,5553,5554,5555,5556,5558,5560,5561,5562,5564,5565,5566,5567,5568,5569,5570,5571,5572,5573,5574,5575,5576,5577,5578,5579,5580,5581,5582,5583,5584,5585,5586,5587,5588,5589,5590,5591,5592,5593,5594,5595,5596,5597,5598,5599,5600,5601,5602,5603,5604,5605,5606,5607,5608,5609,5610,5611,5612,5613,5614,5615,5616,5617,5618,5619,5620,5621,5622,5623,5624,5625,5626,5627,5628,5629,5630,5631,5632,5633,5634,5635,5636,5637,5638,5639,5640,5641,5642,5644,5645,5646,5647,5648,5649,5650,5651,5652,5653,5654,5655,5656,5657,5658,5659,5660,5661,5662,5663,5664,5665,5666,5667,5669,5670,5671,5672,5673,5674,5675,5676,5677,5678,5679,5681,5682,5683,5684,5685,5689,5691,5692,5693,5696,5697,103475,104467,104468,104472,104474,104475,104476,104477,104478,104479,104480,104481,104482,104484,104485,104486,104487,104488,104489,104490,104491,104492,104493,104494,104495,104530,104550,104551,104553,104567,105482,105483,105484,105485,105486,105487,105488,105489,105490,105491,105492,105493,105494,105495,105496,105497,105498,105499,105500,105501,105502,105503,105504,105505,105506,105507,105508,105509,105510];
+        const areaTitle = 'Nezn&#xE1;m&#xE1; oblast';
+        let iterList = shuffleIterList(questionList.map(i => i));
+        const selectors = {
+            questionAnswerContainer: "#question-answer-container",
+            questionNumber:"#questionNumber",
+            navbarPlaceholder: "#navbar-placeholder",
+            navbarAreaTitle:"#navbar-area-placeholder",
+            navbarQuestionCounter: "#navbar-counter-placeholder",
+                answers: ".answer",
+                clickableAnswers: ".answer-clickable",
+                questionMarks: ".question-mark",
+                isCorrectData: "is-correct",
+                answerIdData: "answer-id",
+                optionData: "option-name",
+                nextQuestionButton: "#btnNext",
+        }
+           const getAnswerSelectorByOptionName = (optionName) => {
+                return `${selectors.answers}[data-${selectors.optionData}=${optionName}]`;
+            }
+              $(document).keydown((e) => {
+                    let selectedElement;
+                    switch (e.code) {
+                        case "ArrowRight":
+                            selectedElement = $(selectors.nextQuestionButton);
+                            break;
+                        case "KeyA":
+                            selectedElement = $(getAnswerSelectorByOptionName("A"));
+                            break;
+                        case "KeyB":
+                            selectedElement = $(getAnswerSelectorByOptionName("B"));
+                            break;
+                        case "KeyC":
+                            selectedElement = $(getAnswerSelectorByOptionName("C"));
+                            break;
+                        case "KeyD":
+                            selectedElement = $(getAnswerSelectorByOptionName("D"));
+                            break;
+                        default:
+                            return;
+                    }
+                    console.log(selectedElement)
+                    $(selectedElement).trigger("click");
+                });
+            
+        function setQuestionNumberTitle(n){
+            $(selectors.questionNumber).html("Otázka č. " + (n + 1));
+            $(selectors.navbarAreaTitle).html(areaTitle);
+            $(selectors.navbarQuestionCounter).html(`${currentQuestionIndex+1} z ${iterList.length}`);
+        }
+        function indexToId(i){
+            return iterList[i];
+        }
+        function shuffleIterList(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+        }
+        function showAnswerColor(){
+            let existsChecked = [...document.querySelectorAll(".answer.answer-clickable img")].some(e => e.style.display != 'none');
+            console.log(existsChecked)
+            for(let a of  document.querySelectorAll(".answer.answer-clickable")){
+                if(a.dataset.isCorrect=='true'){
+                    a.style.backgroundColor="lightgreen";
+                    //if (!existsChecked)
+                       // a.querySelector("img").style.display = "block"
+                }
+                else{
+                    a.style.color="white";
+                    a.style.backgroundColor = "red";
+                }
+            }
+        }
+        function showOrangePipe(e) {
+            let imaz = e.target.querySelector("img") || e.target;
+            if (imaz && imaz.tagName=="IMG") {
+                $(imaz).toggle();
+            }
+        }
+       
+        var fromNavigation = 0;
+        function loadQuestionA(i) {
+            fromNavigation=1;
+            loadQuestion(i);
+        }
+        async function loadQuestion(i) {
+            setQuestionNumberTitle(i);
+            currentQuestionIndex = i;
+            nextStep = 0;
+            const uri = `/api/v1/PublicWeb/Question/${indexToId(i)}`;
+            const r = await fetch(uri);
+            const myQuestion = await r.json();
+            const btnNext = document.getElementById("btnNext");
+            btnNext.disabled = ! ("id" in myQuestion)
+            if(!btnNext.disabled)
+                shared.renderQuestion($(selectors.questionAnswerContainer), myQuestion, () => { });
+            return !btnNext.disabled;
+        }
+        async function nextQuestion(){
+            if(nextStep==0) {
+                showAnswerColor();
+                nextStep=1;
+            } else{
+               let q =  await loadQuestion(currentQuestionIndex+fromNavigation);
+                fromNavigation = 0;
+               if(q==true)
+                currentQuestionIndex++;
+            }
+        }
+        function showNavbarInfo(){
+            
+            $(selectors.navbarPlaceholder).toggle();
+        }
+        $(document).ready(function () {
+            showNavbarInfo();
+            loadQuestion(0);
+            setQuestionNumberTitle(0);
+            
+
+
+            function createTable(qCount) {
+                var max = 50;
+                $("#numTablePlaceholder").empty();
+                var step = 0;
+                if (qCount > max)
+                    step = qCount / max;
+                else
+                    step = 1;
+
+                for (var q = 0; Math.round(q) < qCount; q += step) {
+                    var i = Math.floor(q);
+                    $("#numTablePlaceholder").append("<a onclick=\"loadQuestionA("+i+")\"data-questionindex='" + i + "'>" + (i + 1).toString() + " </a>");
+                }
+            }
+            function toggleTable(){
+                state=state=="random"?"ordered":"random";
+                if (state == "random") iterList = shuffleIterList(questionList.map(i => i));
+                if (state == "ordered") iterList = questionList.map(i => i);
+                createTable(1151);
+                    $("#notOrderState").toggle();
+                    $("#orderedState").toggle();
+                currentQuestionIndex = 0;
+                loadQuestion(0);
+                setQuestionNumberTitle(0);
+            }
+            var tableVisible=false;
+            $("#btnOrder").on('click', toggleTable );
+            $("#btnRandom").on('click', toggleTable);
+            $("#btnNext").on('click', nextQuestion);
+
+        $(document).on("click", ".answer-text, .answer-text img", function (e) {
+            let parentAnswer = $(this).closest(".answer.answer-clickable");
+            if (parentAnswer.length) {
+                parentAnswer.trigger("click");
+            }
+        });
+
+        });
+    </script>
+    <style>
+        #numTablePlaceholder a:hover{
+            background-color:lightsteelblue;
+        }
+        #numTablePlaceholder{
+            cursor:pointer;
+            display:grid;
+            grid-template: repeat(10, 1fr) / repeat(5, 1fr);
+            margin:0px 0px 20px 5px;
+            text-align:center;
+            column-gap:10px;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+
+    <div class="page-wrapper">
+        
+<header>
+    <div class="page-header flex">
+        <a href="/">
+            <img src="/img/etesty-logo.svg" alt="Logo eTesty">
+        </a>
+        
+        
+        <a href="http://www.mdcr.cz">
+            <img src="/img/md-logo.svg" alt="Logo MD">
+        </a>
+    </div>
+</header>
+<div class="navigationbar-wrapper">
+    <div class="navigationbar-background"></div>
+    <ul class="navigationbar">
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/Home/">Úvod</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/Help/">Popis ovládání</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/Bulletin">Elektronický věstník</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/PrintPaperTests">Tisk papírových testů</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/News">Aktuality</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/Faq">Často kladené dotazy</a>
+        </li>
+        <li class="navigationbar-item">
+            <a class="navigationbar-item-link" href="/ro/EtResult">Výsledek el. testu</a>
+        </li>
+    </ul>
+</div>
+
+<div class="content content-column">
+    
+
+<div class="container">
+    <div class="row gx-5">
+        <div class="col-3" style="background-color:#ececec">
+            <h3 id="questionNumber">Otázka č. 1</h3>
+            <div id="notOrderState" style="display: none;">
+                <strong>Otázky nejsou seřazeny</strong>
+                <p>
+                    Po spuštění lekce jsou otázky vybírány náhodně. Pokud budete chtít později pokračovat v lekci, seřaďte si otázky, příště se můžete vrátit zpět k otázce na konkrétní pozici v lekci.
+                </p>
+                <button type="button" id="btnOrder">Seřadit otázky podle kódu</button>
+            </div>
+            <div id="orderedState" style="">
+                <strong>Otázky jsou seřazeny</strong>
+                <p>
+                    Pomocí odkazů zobrazených níže se můžete pohybovat v rámci lekce mezi otázkami na vybraných pozicích. K otázkám mimo zobrazené pořadí se dostanete postupným průchodem od otázky s nižším číslem.
+                </p>
+              
+                <div id="numTablePlaceholder"><a onclick="loadQuestionA(0)" data-questionindex="0">1 </a><a onclick="loadQuestionA(23)" data-questionindex="23">24 </a><a onclick="loadQuestionA(46)" data-questionindex="46">47 </a><a onclick="loadQuestionA(69)" data-questionindex="69">70 </a><a onclick="loadQuestionA(92)" data-questionindex="92">93 </a><a onclick="loadQuestionA(115)" data-questionindex="115">116 </a><a onclick="loadQuestionA(138)" data-questionindex="138">139 </a><a onclick="loadQuestionA(161)" data-questionindex="161">162 </a><a onclick="loadQuestionA(184)" data-questionindex="184">185 </a><a onclick="loadQuestionA(207)" data-questionindex="207">208 </a><a onclick="loadQuestionA(230)" data-questionindex="230">231 </a><a onclick="loadQuestionA(253)" data-questionindex="253">254 </a><a onclick="loadQuestionA(276)" data-questionindex="276">277 </a><a onclick="loadQuestionA(299)" data-questionindex="299">300 </a><a onclick="loadQuestionA(322)" data-questionindex="322">323 </a><a onclick="loadQuestionA(345)" data-questionindex="345">346 </a><a onclick="loadQuestionA(368)" data-questionindex="368">369 </a><a onclick="loadQuestionA(391)" data-questionindex="391">392 </a><a onclick="loadQuestionA(414)" data-questionindex="414">415 </a><a onclick="loadQuestionA(437)" data-questionindex="437">438 </a><a onclick="loadQuestionA(460)" data-questionindex="460">461 </a><a onclick="loadQuestionA(483)" data-questionindex="483">484 </a><a onclick="loadQuestionA(506)" data-questionindex="506">507 </a><a onclick="loadQuestionA(529)" data-questionindex="529">530 </a><a onclick="loadQuestionA(552)" data-questionindex="552">553 </a><a onclick="loadQuestionA(575)" data-questionindex="575">576 </a><a onclick="loadQuestionA(598)" data-questionindex="598">599 </a><a onclick="loadQuestionA(621)" data-questionindex="621">622 </a><a onclick="loadQuestionA(644)" data-questionindex="644">645 </a><a onclick="loadQuestionA(667)" data-questionindex="667">668 </a><a onclick="loadQuestionA(690)" data-questionindex="690">691 </a><a onclick="loadQuestionA(713)" data-questionindex="713">714 </a><a onclick="loadQuestionA(736)" data-questionindex="736">737 </a><a onclick="loadQuestionA(759)" data-questionindex="759">760 </a><a onclick="loadQuestionA(782)" data-questionindex="782">783 </a><a onclick="loadQuestionA(805)" data-questionindex="805">806 </a><a onclick="loadQuestionA(828)" data-questionindex="828">829 </a><a onclick="loadQuestionA(851)" data-questionindex="851">852 </a><a onclick="loadQuestionA(874)" data-questionindex="874">875 </a><a onclick="loadQuestionA(897)" data-questionindex="897">898 </a><a onclick="loadQuestionA(920)" data-questionindex="920">921 </a><a onclick="loadQuestionA(943)" data-questionindex="943">944 </a><a onclick="loadQuestionA(966)" data-questionindex="966">967 </a><a onclick="loadQuestionA(989)" data-questionindex="989">990 </a><a onclick="loadQuestionA(1012)" data-questionindex="1012">1013 </a><a onclick="loadQuestionA(1035)" data-questionindex="1035">1036 </a><a onclick="loadQuestionA(1058)" data-questionindex="1058">1059 </a><a onclick="loadQuestionA(1081)" data-questionindex="1081">1082 </a><a onclick="loadQuestionA(1104)" data-questionindex="1104">1105 </a><a onclick="loadQuestionA(1127)" data-questionindex="1127">1128 </a></div>
+                <p>
+                    Pro lepší procvičení se mohou otázky zobrazovat v náhodném pořadí.
+                </p>
+                <button type="button" id="btnRandom">Náhodný výběr</button>
+            </div>
+        </div>
+        <div class="col-9">
+            <div id="question-answer-container"><div class="question-image" style="display:flex;justify-content: center;align-items:center;">Při vlečení motorového vozidla na tyči musí být délka tyče taková, aby vzdálenost mezi vozidly nebyla: </div> <div onclick="showOrangePipe(event)" class="answer answer-clickable" data-is-correct="false" data-is-selected="undefined" data-answer-id="24667" data-option-name="A"><span class="answer-checkbox">A<img alt="QuestionMark" class="question-mark" src="/img/Pages/Tests/QuestionMark.png" style="display:none"></span><p class="answer-text">Menší než 1 m a větší než 5 m.</p></div><div onclick="showOrangePipe(event)" class="answer answer-clickable" data-is-correct="false" data-is-selected="undefined" data-answer-id="24668" data-option-name="B"><span class="answer-checkbox">B<img alt="QuestionMark" class="question-mark" src="/img/Pages/Tests/QuestionMark.png" style="display:none"></span><p class="answer-text">Menší než 1,5 m a větší než 5 m.</p></div><div onclick="showOrangePipe(event)" class="answer answer-clickable" data-is-correct="true" data-is-selected="undefined" data-answer-id="24669" data-option-name="C"><span class="answer-checkbox">C<img alt="QuestionMark" class="question-mark" src="/img/Pages/Tests/QuestionMark.png" style="display:none"></span><p class="answer-text">Menší než 1 m a větší než 6 m.</p></div></div>
+            <button type="button" id="btnNext">Další</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+
+<div class="footer-background"></div>
+<footer class="footer" style="display:flex">
+    <a class="test-footer-item" id="close-tab-button" href="//Home">Zpět na úvodní obrazovku</a>
+    <div class="footer-content-container">
+        © 2025 Ministerstvo dopravy
+    </div>
+</footer>
+
+
+
+
+    </div>
+
+<ege-hvkxazjgjosz></ege-hvkxazjgjosz></body></html>

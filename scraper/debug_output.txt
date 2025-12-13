@@ -1,0 +1,7 @@
+Question ID: 2083
+Answer 1 text: '.'
+Answer 1 char codes: 46
+Answer 2 text: '.'
+Answer 2 char codes: 46
+Answer 3 text: '.'
+Answer 3 char codes: 46

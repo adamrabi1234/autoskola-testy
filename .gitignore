@@ -1,0 +1,14 @@
+# Defaults for all subprojects
+node_modules/
+dist/
+build/
+*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment
+.env
+.env.*.local
