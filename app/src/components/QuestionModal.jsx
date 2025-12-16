@@ -4,8 +4,8 @@ import { Lightbox } from './Lightbox';
 import { useSwipe } from '../hooks/useSwipe';
 
 export function QuestionModal({ question, progress, originalIndex, onClose, onAnswer, onReset, onToggleStruggle, onNext, onPrev }) {
-    const [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [showResult, setShowResult] = useState(false);
+    const [selectedAnswer, setSelectedAnswer] = useState(progress.selectedAnswerId || null);
+    const [showResult, setShowResult] = useState(!!progress.status);
     const [zoomedImage, setZoomedImage] = useState(null);
     const [autoAdvance, setAutoAdvance] = useState(() => localStorage.getItem('autoskola_autoadvance') === 'true');
     const timeoutRef = useRef(null);
@@ -16,20 +16,7 @@ export function QuestionModal({ question, progress, originalIndex, onClose, onAn
         threshold: 70
     });
 
-    useEffect(() => {
-        if (progress.status) {
-            setShowResult(true);
-            if (progress.selectedAnswerId) {
-                setSelectedAnswer(progress.selectedAnswerId);
-            } else {
-                setSelectedAnswer(null);
-            }
-        } else {
-            setShowResult(false);
-            setSelectedAnswer(null);
-        }
-    }, [question.id, progress]);
-
+    // Effect for auto-advance timeout cleanup
     useEffect(() => {
         return () => {
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -80,7 +67,9 @@ export function QuestionModal({ question, progress, originalIndex, onClose, onAn
                 }
             } else if (e.key === 'r' || e.key === 'R') {
                 if (showResult) {
-                    handleResetClick();
+                    onReset(question.id);
+                    setSelectedAnswer(null);
+                    setShowResult(false);
                 }
             } else if (e.key === 'm' || e.key === 'M') {
                 onToggleStruggle(question.id);
@@ -89,7 +78,7 @@ export function QuestionModal({ question, progress, originalIndex, onClose, onAn
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [onPrev, onNext, onClose, zoomedImage, showResult, question.id, onToggleStruggle]);
+    }, [onPrev, onNext, onClose, zoomedImage, showResult, question.id, onToggleStruggle, onReset]);
 
     const mediaUrl = question.mediaContent
         ? `https://etesty.md.gov.cz${question.mediaContent.mediaUrl}`

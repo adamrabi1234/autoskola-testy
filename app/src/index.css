@@ -5,6 +5,10 @@
   --font-main: 'Inter', sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
